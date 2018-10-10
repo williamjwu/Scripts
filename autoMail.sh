@@ -33,6 +33,13 @@ VERIFIED_EMAIL=(
 sendmail() {
 	echo -n "To: "
 	read recepientEmail
+	
+	# quit when recpepient email is empty
+	if [ "$recepientEmail" = "" ]; then
+		echo "Empty email address. Program terminated."
+		exit
+	fi
+
 	tailValid=0
 	validTail=$(echo $recepientEmail | cut -d'@' -f 2)
 	# check length and the validation of the tailing
