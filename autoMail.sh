@@ -1,4 +1,13 @@
 #!/bin/bash
+
+VERIFIED_EMAIL=(
+"gmail.com"
+"yahoo.com"
+"outlook.com"
+"icloud.com"
+"qq.com"
+)
+
 mainmenu() {
 	echo "Pick configuration to use:"
 	echo "  [1] Send Email"
@@ -23,17 +32,11 @@ mainmenu() {
 			abortinput
 	fi
 }
-VERIFIED_EMAIL=(
-"gmail.com"
-"yahoo.com"
-"outlook.com"
-"icloud.com"
-"qq.com"
-)
+
 sendmail() {
 	echo -n "To: "
 	read recepientEmail
-	
+
 	# quit when recpepient email is empty
 	if [ "$recepientEmail" = "" ]; then
 		echo "Empty email address. Program terminated."
@@ -79,28 +82,76 @@ sendmail() {
 }
 spammail() {
 	echo -n "To: "
-	read target
-	echo -n "How many email do you want to spam this person: "
-	read spamnum
-	if [ "$spamnum" -lt "100" ]; then
-		echo -n "Aww why so much hate. Are you sure to spam this person? [y/n]: "
-		read answer
-		if [ "$answer" = "y" ]; then
-			COUNT=0
-			while [ "$COUNT" -lt $spamnum ]; do
-				echo "" | mail -s "" "$target"
-				let COUNT=COUNT+1
-			done
+	read recepientEmail
+	if [ "$recepientEmail" = "" ]; then
+		echo "Empty email address. Program terminated."
+		exit
+	fi
+
+	tailValid=0
+	validTail=$(echo $recepientEmail | cut -d'@' -f 2)
+	# check length and the validation of the tailing
+	if [ "$(echo -n $validTail | wc -m)" != "$(echo -n $recepientEmail | wc -m)" ]; then
+		# echo "$validTail"
+		COUNT=0
+        while [  $COUNT -lt 5 ]; do
+            if [ "$validTail" = "${VERIFIED_EMAIL[$COUNT]}" ]; then
+				let tailValid=1
+				break
+			fi
+            let COUNT=COUNT+1
+        done
+	fi
+
+	if [ "$tailValid" = "1" ]; then
+		echo -n "Subject: "
+		read subject
+		if ! command_loc="$(type -p "mvim")" || [[ -z $command_loc ]];
+		then
+			vim -v emailBody.txt
 		else
-			echo "Thanks for being a nice person!"
+			mvim -v emailBody.txt
+		fi
+		file="./emailBody.txt"
+		while IFS= read line
+		do
+			bodyBuffer="$bodyBuffer"$'\n'"$line"
+		done <"$file"
+		rm emailBody.txt
+		echo -n "How many email do you want to spam this person: "
+		read spamnum
+		if [ "$spamnum" -lt "100" ]; then
+			echo -n "Aww why so much hate. Are you sure to spam this person? [y/n]: "
+			read answer
+			if [ "$answer" = "y" ]; then
+				COUNT=0
+				while [ "$COUNT" -lt $spamnum ]; do
+					echo "$bodyBuffer" | mail -s "$subject" "$recepientEmail"
+					let COUNT=COUNT+1
+				done
+			else
+				echo "Thanks for being a nice person!"
+				exit
+			fi
+		elif [ "$spamnum" -ge "100" ]; then
+			echo "Hey that's too much spamming! Be nice to people."
+			exit
+		else
+			echo "Invalid input. Program terminated."
 			exit
 		fi
 	else
-		echo "Hey that's too much spamming! Be nice to people."
+		echo "Err: Invalid email."
 		exit
 	fi
 }
+subjectCreate() {
+	echo "place holder"
 
+}
+bodyCreate() {
+	echo "another one"
+}
 abortinput() {
 	echo -n "Do you want to continue? [y/n]: "
 	read abortinput
