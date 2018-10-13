@@ -1,6 +1,14 @@
 # Scripts
-My boring scripts
+My boring script collections
 
 # Wanna give it a try?
+1. Put the script in a directory you like.
+2. chmod +x name_of_script.sh
+3. alias name_of_script='/dir/of/script/name_of_script.sh'
+4. Enjoy! ヽ(o＾▽＾o)ノ~
 
-# auto mail
+# Auto Mail
+Automatically spam people & Email in terminal with vim
+# Theme Hop
+A fix for MacOS Mojave's dark mode. Not many people appreciate every single app in dark mode.
+Well, here is a chance for you to switch between dark and light mode for specific app in a few commands!
