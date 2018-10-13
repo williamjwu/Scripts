@@ -5,6 +5,7 @@ VERIFIED_EMAIL=(
 "yahoo.com"
 "outlook.com"
 "icloud.com"
+"aol.com"
 "qq.com"
 )
 
