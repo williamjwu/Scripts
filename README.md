@@ -11,4 +11,4 @@ My boring script collections
 Automatically spam people & Email in terminal with vim
 # Theme Hop
 A fix for MacOS Mojave's dark mode. Not many people appreciate every single app in dark mode.
-Well, here is a chance for you to switch between dark and light mode for specific app in a few commands!
+Well, here is a chance for you to switch between dark and light mode for a specific app in a few commands!
