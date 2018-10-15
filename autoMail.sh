@@ -1,5 +1,4 @@
 #!/bin/bash
-
 VERIFIED_EMAIL=(
 "gmail.com"
 "yahoo.com"
