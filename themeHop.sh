@@ -1,8 +1,7 @@
 #!/bin/bash
 
 mainmenu() {
-	echo -n "Pick configuration to use:"
-	echo ""
+	echo "Pick configuration to use:"
 	echo "  [1] Dark"
 	echo "  [2] Light"
 	echo "  [3] All Dark"
