@@ -1,7 +1,7 @@
 ## Scripts
 My boring script collections
 
-## Want to try?
+## Wanna try?
 1. Place the script in a directory you like.
 2. chmod +x name_of_script.sh
 3. alias name_of_script='/dir/of/script/name_of_script.sh'
@@ -9,6 +9,7 @@ My boring script collections
 
 ## Auto Mail
 Automatically spam people & Email in terminal with vim
+Many vim enthusisats have the urge of editing every file in vim (me too!), and here is a chance for you to write emails in vim! Please be aware that you have to configure your smtp server with your email to use this script. The third feature will be introduced later after I finish my college applications, which is not fun at all.
 ## Theme Hop
 A fix for MacOS Mojave's dark mode. Not many people appreciate every single app in dark mode.
 Well, here is a chance for you to switch between dark and light mode for a specific app in a few commands!
