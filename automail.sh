@@ -18,11 +18,11 @@ mainmenu() {
 
 	if [ "$mainmenuinput" = "1" ]; then
 		sendmail
-		echo "Email sent!"
+		echo "\h:\W \[\e[38;5;40m\]Email sent!\[\e[39m\]"
 		exit
 		elif [ "$mainmenuinput" = "2" ]; then
 			spammail
-			echo "Attack completed!"
+			echo "\h:\W \[\e[38;5;40m\]Attack completed!\[\e[39m\]"
 			exit
 	    elif [ "$mainmenuinput" = "3" ]; then
 			echo "Not yet available!"
