@@ -7,7 +7,9 @@ VERIFIED_EMAIL=(
 "aol.com"
 "qq.com"
 )
-
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
 mainmenu() {
 	echo "Pick configuration to use:"
 	echo "  [1] Send Email"
@@ -18,11 +20,11 @@ mainmenu() {
 
 	if [ "$mainmenuinput" = "1" ]; then
 		sendmail
-		echo "\h:\W \[\e[38;5;40m\]Email sent!\[\e[39m\]"
+		printf "${GREEN}Email sent!${NC}"
 		exit
 		elif [ "$mainmenuinput" = "2" ]; then
 			spammail
-			echo "\h:\W \[\e[38;5;40m\]Attack completed!\[\e[39m\]"
+			echo -e "${GREEN}Attack completed!${NC}"
 			exit
 	    elif [ "$mainmenuinput" = "3" ]; then
 			echo "Not yet available!"
@@ -41,7 +43,7 @@ sendmail() {
 	if [ "$isValid" = "1" ]; then
 		mailcreate $recepientEmail
 	else
-		echo "Err: \"$recepientEmail\" is an invalid email."
+		printf "${RED}Err: \"$recepientEmail\" is an invalid email.${NC}"
 		exit
 	fi
 
@@ -62,17 +64,17 @@ spammail() {
 				exit
 			fi
 		else
-    		echo "Err: \"$spamnum\" is not an integer."
+    		printf "${RED}Err: \"$spamnum\" is not an integer.${NC}"
 			exit
 		fi
 	else
-		echo "Err: \"$recepientEmail\" is an invalid email."
+		printf "${RED}Err: \"$recepientEmail\" is an invalid email.${NC}"
 		exit
 	fi
 }
 validatemail() {
 	if [ "$1" = "" ]; then
-		echo "Empty email address. Program terminated."
+		echo "${RED}Err: empty email address.${NC}"
 		exit
 	fi
 
@@ -126,7 +128,7 @@ mailcreate() {
 			echo "Thanks for being a nice person!"
 			exit
 		else
-			echo "Err: \"$answer\" is not a valid input."
+			printf "${RED}Err: \"$answer\" is not a valid input.${NC}"
 			exit
 		fi
 	fi
