@@ -7,7 +7,7 @@ My boring script collections
 3. alias name_of_script='/dir/of/script/name_of_script.sh'
 4. Enjoy! ヽ(o＾▽＾o)ノ~
 
-## Auto Mail
+## Vim Mail
 Automatically spam people & Email in terminal with vim.
 
 Many vim enthusisats have the urge of editing every file in vim (me too!), and here is a chance for you to write emails in vim! Please be aware that you have to configure your smtp server with your email to use this script. The third feature will be introduced later after I finish my college applications, which is not fun at all.
