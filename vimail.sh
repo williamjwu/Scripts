@@ -98,12 +98,7 @@ mailcreate() {
 	bodyBuffer=""
 	echo -n "Subject: "
 	read subject
-	if ! command_loc="$(type -p "mvim")" || [[ -z $command_loc ]];
-	then
-		vim -v emailBody.txt
-	else
-		mvim -v emailBody.txt
-	fi
+	vim -v emailBody.txt
 	if [ -f ./emailBody.txt ]; then
 		file="./emailBody.txt"
 		while IFS= read line
