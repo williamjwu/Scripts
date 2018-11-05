@@ -1,4 +1,5 @@
 #!/bin/bash
+
 VERIFIED_EMAIL=(
 "gmail.com"
 "yahoo.com"
@@ -7,9 +8,11 @@ VERIFIED_EMAIL=(
 "aol.com"
 "qq.com"
 )
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
+
 mainmenu() {
 	echo "Pick configuration to use:"
 	echo "  [1] Send Email"
@@ -48,6 +51,7 @@ sendmail() {
 	fi
 
 }
+
 spammail() {
 	echo -n "To: "
 	read recepientEmail
@@ -72,6 +76,7 @@ spammail() {
 		exit
 	fi
 }
+
 validatemail() {
 	if [ "$1" = "" ]; then
 		echo "${RED}Err: empty email address.${NC}"
@@ -94,6 +99,7 @@ validatemail() {
 	fi
 	echo "$tailValid"
 }
+
 mailcreate() {
 	bodyBuffer=""
 	echo -n "Subject: "
@@ -129,6 +135,7 @@ mailcreate() {
 	fi
 
 }
+
 abortinput() {
 	echo -n "Do you want to continue? [y/n]: "
 	read abortinput
