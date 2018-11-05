@@ -3,12 +3,12 @@ My boring script collections
 
 ## Wanna try?
 1. Place the script in a directory you like.
-2. chmod +x name_of_script.sh
+2. Give the script executable permission: chmod +x name_of_script.sh
 3. alias name_of_script='/dir/of/script/name_of_script.sh'
 4. Enjoy! ヽ(o＾▽＾o)ノ~
 
-## Vim Mail
-Automatically spam people & Email in terminal with vim.
+## Termail
+Automatically spam people & Email in terminal with vim. For macvim users: try to install macvim with "override-system-vim" instead of just downloading. I will later add support to choose your own editor, perferably CLI.
 
 Many vim enthusisats have the urge of editing every file in vim (me too!), and here is a chance for you to write emails in vim! Please be aware that you have to configure your smtp server with your email to use this script. The third feature will be introduced later after I finish my college applications, which is not fun at all.
 ## Theme Hop
