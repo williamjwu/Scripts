@@ -5,9 +5,7 @@ My boring script collections
 1. Place the script in a directory you like.
 2. Give the script executable permission: 
 ```chmod +x name_of_script.sh```
-3. 
-```alias name_of_script='/dir/of/script/name_of_script.sh'```
-
+3. ```alias name_of_script='/dir/of/script/name_of_script.sh'```
 4. Enjoy! ヽ(o＾▽＾o)ノ~
 
 ## Termail
