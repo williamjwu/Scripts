@@ -2,11 +2,15 @@
 My boring script collections
 
 ## Wanna try?
-1. Place the script in a directory you like.
-2. Give the script executable permission: 
-```chmod +x name_of_script.sh```
-3. ```alias name_of_script='/dir/of/script/name_of_script.sh'```
-4. Enjoy! ヽ(o＾▽＾o)ノ~
+Place the script in a directory you like and give the script executable permission
+```
+chmod +x name_of_script.sh
+```
+You can also alias this script in your ```.bashrc``` or ```.bash_profile```
+```
+alias name_of_script='/dir/of/script/name_of_script.sh'
+```
+Enjoy! ヽ(o＾▽＾o)ノ~
 
 ## Termail
 Automatically spam people & Email in terminal with vim. For macvim users: try to install macvim with "override-system-vim" instead of just downloading. I will later add support to choose your own editor, perferably CLI.
