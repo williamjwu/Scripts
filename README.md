@@ -15,11 +15,13 @@ Enjoy! ヽ(o＾▽＾o)ノ~
 ## Termail
 Automatically spam people & Email in terminal with vim. For macvim users: try to install macvim with "override-system-vim" instead of just downloading. I will later add support to choose your own editor, perferably CLI.
 
-Many vim enthusisats have the urge of editing every file in vim (me too!), and here is a chance for you to write emails in vim! Please be aware that you have to configure your smtp server with your email to use this script. The third feature will be introduced later after I finish my college applications, which is not fun at all.
+Many vim enthusisats have the urge of editing every file in vim (me too!), and here is a chance for you to write emails in vim! Please be aware that you have to configure your smtp server with your email to use this script. The third feature will be introduced later.
 ## Theme Hop
 A fix for MacOS Mojave's dark mode. Not many people appreciate every single app in dark mode.
 Well, here is a chance for you to switch between dark and light mode for a specific app in a few commands!
 
+## Pdfread
+This script allows you to view pdfs terminal with vim.
 ## License
 MIT License
 
