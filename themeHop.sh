@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 mainmenu() {
 	echo "Pick configuration to use:"

@@ -1,7 +1,5 @@
-#!/bin/bash
+#!/bin/sh
 
-# if $1 exist and it is true start the program
-# if not then echo out the illegal arguments
 main() {
 	if [ -f ./$1 ]; then
 		checkpglimit $1
