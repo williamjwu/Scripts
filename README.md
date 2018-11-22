@@ -6,7 +6,7 @@ Place the script in a directory you like and give the script executable permissi
 ```
 chmod +x name_of_script.sh
 ```
-You can also alias this script in your ```.bashrc``` or ```.bash_profile```
+You can also alias this script in your ```.bashrc``` or ```.bash_profile``` and restart bash
 ```
 alias name_of_script='/dir/of/script/name_of_script.sh'
 ```
