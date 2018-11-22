@@ -21,7 +21,7 @@ A fix for MacOS Mojave's dark mode. Not many people appreciate every single app 
 Well, here is a chance for you to switch between dark and light mode for a specific app in a few commands!
 
 ## Pdfread
-This script allows you to view pdfs terminal with vim.
+This script allows you to view pdfs in terminal with vim.
 ## License
 MIT License
 
