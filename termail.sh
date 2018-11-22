@@ -18,7 +18,7 @@ mainmenu() {
 	echo "  [1] Send Email"
 	echo "  [2] Spamming"
 	echo "  [3] Read Email"
-	echo -n "Enter selection and press [ENTER]: "
+	printf "Enter selection and press [ENTER]: "
 	read mainmenuinput
 
 	if [ "$mainmenuinput" = "1" ]; then
@@ -27,19 +27,19 @@ mainmenu() {
 		exit
 		elif [ "$mainmenuinput" = "2" ]; then
 			spammail
-			echo -e "${GREEN}Attack completed!${NC}"
+			printf "${GREEN}Attack completed!${NC}"
 			exit
 	    elif [ "$mainmenuinput" = "3" ]; then
-			echo "Not yet available!"
+			printf "Not yet available!"
 			exit
 		else
-			echo "Please enter a valid number between 1 and 3"
+			printf "Please enter a valid number between 1 and 3"
 			abortinput
 	fi
 }
 
 sendmail() {
-	echo -n "To: "
+	printf "To: "
 	read recepientEmail
 	isValid=$(validatemail $recepientEmail)
 
@@ -49,22 +49,21 @@ sendmail() {
 		printf "${RED}Err: \"$recepientEmail\" is an invalid email.${NC}"
 		exit
 	fi
-
 }
 
 spammail() {
-	echo -n "To: "
+	printf "To: "
 	read recepientEmail
 	isValid=$(validatemail $recepientEmail)
 
 	if [ "$isValid" = "1" ]; then
-		echo -n "How many email do you want to spam this person: "
+		printf "How many email do you want to spam this person: "
 		read spamnum
 		if [ $spamnum -eq $spamnum 2>/dev/null ]; then
      		if [ "$spamnum" -lt "100" ]; then
 				mailcreate $recepientEmail $spamnum
 			else
-				echo "Hey that's too much spamming! Be nice to people."
+				printf "Hey that's too much spamming! Be nice to people."
 				exit
 			fi
 		else
@@ -79,7 +78,7 @@ spammail() {
 
 validatemail() {
 	if [ "$1" = "" ]; then
-		echo "${RED}Err: empty email address.${NC}"
+		printf "${RED}Err: empty email address.${NC}"
 		exit
 	fi
 
@@ -102,7 +101,7 @@ validatemail() {
 
 mailcreate() {
 	bodyBuffer=""
-	echo -n "Subject: "
+	printf "Subject: "
 	read subject
 	vim -v emailBody.txt
 	if [ -f ./emailBody.txt ]; then
@@ -117,7 +116,7 @@ mailcreate() {
 	if [ "$2" = "" ]; then
 		echo "$bodyBuffer" | mail -s "$subject" "$1"
 	else
-		echo -n "Aww why so much hate. Are you sure to spam this person? [y/n]: "
+		printf -n "Aww why so much hate. Are you sure to spam this person? [y/n]: "
 		read answer
 		if [ "$answer" = "y" ]; then
 			COUNT=0
@@ -126,7 +125,7 @@ mailcreate() {
 				let COUNT=COUNT+1
 			done
 		elif [ "$answer" = "n" ]; then
-			echo "Thanks for being a nice person!"
+			printf "Thanks for being a nice person!"
 			exit
 		else
 			printf "${RED}Err: \"$answer\" is not a valid input.${NC}"
@@ -137,13 +136,13 @@ mailcreate() {
 }
 
 abortinput() {
-	echo -n "Do you want to continue? [y/n]: "
+	printf "Do you want to continue? [y/n]: "
 	read abortinput
 	if [ "$abortinput" = "y" ]; then
-		echo ""
+		printf ""
 		mainmenu
 	else
-		echo "Program terminated."
+		printf "Program terminated."
 		exit
 	fi
 }
