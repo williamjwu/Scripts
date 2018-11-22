@@ -23,17 +23,17 @@ mainmenu() {
 
 	if [ "$mainmenuinput" = "1" ]; then
 		sendmail
-		printf "${GREEN}Email sent!${NC}"
+		echo "${GREEN}Email sent!${NC}"
 		exit
 		elif [ "$mainmenuinput" = "2" ]; then
 			spammail
-			printf "${GREEN}Attack completed!${NC}"
+			echo "${GREEN}Attack completed!${NC}"
 			exit
 	    elif [ "$mainmenuinput" = "3" ]; then
-			printf "Not yet available!"
+			echo "Not yet available!"
 			exit
 		else
-			printf "Please enter a valid number between 1 and 3"
+			echo "Please enter a valid number between 1 and 3"
 			abortinput
 	fi
 }
@@ -46,7 +46,7 @@ sendmail() {
 	if [ "$isValid" = "1" ]; then
 		mailcreate $recepientEmail
 	else
-		printf "${RED}Err: \"$recepientEmail\" is an invalid email.${NC}"
+		echo "${RED}Err: \"$recepientEmail\" is an invalid email.${NC}"
 		exit
 	fi
 }
@@ -63,22 +63,22 @@ spammail() {
      		if [ "$spamnum" -lt "100" ]; then
 				mailcreate $recepientEmail $spamnum
 			else
-				printf "Hey that's too much spamming! Be nice to people."
+				echo "Hey that's too much spamming! Be nice to people."
 				exit
 			fi
 		else
-    		printf "${RED}Err: \"$spamnum\" is not an integer.${NC}"
+    		echo "${RED}Err: \"$spamnum\" is not an integer.${NC}"
 			exit
 		fi
 	else
-		printf "${RED}Err: \"$recepientEmail\" is an invalid email.${NC}"
+		echo "${RED}Err: \"$recepientEmail\" is an invalid email.${NC}"
 		exit
 	fi
 }
 
 validatemail() {
 	if [ "$1" = "" ]; then
-		printf "${RED}Err: empty email address.${NC}"
+		echo "${RED}Err: empty email address.${NC}"
 		exit
 	fi
 
@@ -116,7 +116,7 @@ mailcreate() {
 	if [ "$2" = "" ]; then
 		echo "$bodyBuffer" | mail -s "$subject" "$1"
 	else
-		printf -n "Aww why so much hate. Are you sure to spam this person? [y/n]: "
+		printf "Aww why so much hate. Are you sure to spam this person? [y/n]: "
 		read answer
 		if [ "$answer" = "y" ]; then
 			COUNT=0
@@ -125,10 +125,10 @@ mailcreate() {
 				let COUNT=COUNT+1
 			done
 		elif [ "$answer" = "n" ]; then
-			printf "Thanks for being a nice person!"
+			echo "Thanks for being a nice person!"
 			exit
 		else
-			printf "${RED}Err: \"$answer\" is not a valid input.${NC}"
+			echo "${RED}Err: \"$answer\" is not a valid input.${NC}"
 			exit
 		fi
 	fi
@@ -139,10 +139,10 @@ abortinput() {
 	printf "Do you want to continue? [y/n]: "
 	read abortinput
 	if [ "$abortinput" = "y" ]; then
-		printf ""
+		echo ""
 		mainmenu
 	else
-		printf "Program terminated."
+		echo "Program terminated."
 		exit
 	fi
 }
