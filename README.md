@@ -20,8 +20,6 @@ Many vim enthusisats have the urge of editing every file in vim (me too!), and h
 A fix for MacOS Mojave's dark mode. Not many people appreciate every single app in dark mode.
 Well, here is a chance for you to switch between dark and light mode for a specific app in a few commands!
 
-## Pdfread
-This script allows you to view pdfs in terminal with vim.
 ## License
 MIT License
 
