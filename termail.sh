@@ -7,7 +7,7 @@ VERIFIED_EMAIL=(
 "icloud.com"
 "aol.com"
 "qq.com"
-"berkeley.edu"
+"illinois.edu"
 )
 
 RED='\033[0;31m'
