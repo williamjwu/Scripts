@@ -1,15 +1,5 @@
 #!/bin/sh
 
-VERIFIED_EMAIL=(
-"gmail.com"
-"yahoo.com"
-"outlook.com"
-"icloud.com"
-"aol.com"
-"qq.com"
-"illinois.edu"
-)
-
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
@@ -82,22 +72,7 @@ validatemail() {
 		echo "${RED}Err: empty email address.${NC}"
 		exit
 	fi
-
-	tailValid=0
-	validTail=$(echo $1 | cut -d'@' -f 2)
-	# check length and the validation of the tailing
-	if [ "$(echo -n $validTail | wc -m)" != "$(echo -n $1 | wc -m)" ]; then
-		# echo "$validTail"
-		COUNT=0
-        while [  $COUNT -lt 5 ]; do
-            if [ "$validTail" = "${VERIFIED_EMAIL[$COUNT]}" ]; then
-				let tailValid=1
-				break
-			fi
-            let COUNT=COUNT+1
-        done
-	fi
-	echo "$tailValid"
+    echo 1
 }
 
 mailcreate() {
